@@ -1,0 +1,5 @@
+<div class="field">
+  <div *ngFor="let line of matrix">
+    <cell *ngFor="let cell of line" [cell]="cell"></cell>
+  </div>
+</div>

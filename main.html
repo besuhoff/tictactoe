@@ -1,0 +1,19 @@
+<h2>A minimalistic tic-tac-toe</h2>
+
+<field [matrix]="matrix"></field>
+
+<div class="status">
+  <span *ngIf="gameOver()">
+    Game over. <span *ngIf="getWinner()"><span class="player">{{getWinner()}}</span> won the game!</span><span *ngIf="!getWinner()">Dead heat!</span>
+  </span>
+  <span *ngIf="!gameOver()">
+    <span class="player">{{getCurrent()}}</span>'s turn
+  </span>
+</div>
+
+<div class="btn-block">
+  <div><label>Field size:</label><input [(ngModel)]="size" type="number" class="btn form-control"></div>
+  <div><label>Winning length:</label><input [(ngModel)]="winningLength" type="number" class="btn form-control"></div>
+  
+  <button class="btn" (click)="reset()">Reset game</button>
+</div>
