@@ -1,7 +1,7 @@
-export enum Symbol { ' ', 'x', 'o' };
+export enum Symbol { 0, 1 };
 
 export class Cell {
-  value: Symbol = ' ';
+  value: Symbol;
   x: number = 0;
   y: number = 0;
   
@@ -10,7 +10,7 @@ export class Cell {
   }
   
   step(symbol: Symbol) {
-    if (this.value === ' ') {
+    if (this.value === undefined) {
       this.value = symbol;
       return true;
     } else {

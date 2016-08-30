@@ -19,11 +19,15 @@ export class AppComponent {
   }
   
   getWinner() {
-    return this.gameService.winner;
+    let symbols = ['o', 'x'];
+
+    return symbols[this.gameService.winner];
   }
   
   getCurrent() {
-    return this.gameService.currentSymbol;
+    let symbols = ['o', 'x'];
+
+    return symbols[this.gameService.currentSymbol];
   }
   
   gameOver() {

@@ -1,1 +1,1 @@
-<span [ngClass]="{ 'won': cell.won }" (click)="step()">[{{cell.value}}]</span>
+<span [ngClass]="{ 'won': cell.won }" (click)="step()">[<span *ngIf="cell.value === 0">o</span><span *ngIf="cell.value === 1">x</span>]</span>

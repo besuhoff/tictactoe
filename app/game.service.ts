@@ -4,13 +4,13 @@ import { Cell, Symbol } from './cell';
 @Injectable()
 export class GameService {
   matrix: Number[][];
-  currentSymbol: Symbol = 'x'; 
+  currentSymbol: Symbol; 
   isGameInProgress: boolean = false;
-  winner: Symbol = ' ';
+  winner: Symbol;
   protected _lineSpread: Array = [];
   
   reset(size: number, winningLength: number): void {
-    this.currentSymbol = 'x';
+    this.currentSymbol = 1;
     this.winner = undefined;
     this.isGameInProgress = true;
     this.matrix = new Array(size);
@@ -85,7 +85,7 @@ export class GameService {
       this.winner = this.currentSymbol;
       this.isGameInProgress = false;
     } else {
-      if (!this.matrix.some(line => line.some(cell => cell.value === ' '))) {
+      if (!this.matrix.some(line => line.some(cell => cell.value === undefined))) {
         this.isGameInProgress = false;
       }
     }
@@ -94,6 +94,6 @@ export class GameService {
   }
   
   switchCurrentSymbol() {
-    this.currentSymbol = this.currentSymbol === 'x' ? 'o' : 'x';
+    this.currentSymbol = +!this.currentSymbol;
   }
 }
